@@ -32,11 +32,38 @@ let Myobj = {
 }
 
 const Myfunc = function(){
-    console.log("Hello world!");
+    // console.log("Hello world!");
 }
 // Myfunc()
-console.log(typeof id);
+// console.log(typeof id);
 
 // non primitive => object
 // non primitive functions() => function object
 // null => always Object type important for interview
+
+//*************************************************** */
+// two memory type : Stack(for primitive data types) | Heap (for Non-primitive data types)
+
+let myName = "Aman"
+
+let mybrotherName = myName
+
+mybrotherName = "Akash"
+
+// console.log(myName);
+// console.log(mybrotherName);
+// here shows that primitive data types provide a copy of org data rather than org data so it doesnt change 
+
+let userone={
+    email : "AMan@google.com",
+    upi : 123645
+}
+
+let usertwo = userone
+
+usertwo.email = "aman@gmail.com"
+
+console.log(userone.email);
+console.log(usertwo.email);
+
+// for non primitive data types like objects it provide reference to the org data in memory so the org data changes
