@@ -39,3 +39,4 @@ console.log(typeof id);
 
 // non primitive => object
 // non primitive functions() => function object
+// null => always Object type important for interview
