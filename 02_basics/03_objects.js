@@ -26,7 +26,7 @@ const juser = {
 //Interview Q. declare a symbol and put it into the Object as a key 
 
 // i have declared the symbol , but couldnt put it into object as a key
-// problem is how you declare it:- mysym => wrong , [mysym] => right
+// problem is how you declare it:- mysym => wrong syntax , [mysym] => right syntax
 
 // console.log(juser["full name"]);
 // console.log(juser);

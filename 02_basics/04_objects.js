@@ -32,13 +32,43 @@ const obj4 = Object.assign({},obj1,obj2,obj3)
 // best way to assign is to use SPREAD
 
 const obj5 = {...obj1,...obj2,...obj3}
-console.log(obj4);
-console.log(obj5);
+// console.log(obj4);
+// console.log(obj5);
 
-console.log(Object.keys(tinderuser));
-console.log(Object.values(tinderuser));
-console.log(Object.entries(tinderuser));
+// console.log(Object.keys(tinderuser));
+// console.log(Object.values(tinderuser));
+// console.log(Object.entries(tinderuser));
 // all the results are in Array
 
 //check whether a object has a specific Key
-console.log(tinderuser.hasOwnProperty("age"));
+// console.log(tinderuser.hasOwnProperty("age"));
+
+/* Deconstruct Object */
+
+const course = {
+    Name : "Blockchain Fundamentals",
+    Price : "349",
+    coursePartner : "Edu91"
+}
+console.log(course.coursePartner); // one way to call a value
+
+const {coursePartner} = course
+console.log(coursePartner); 
+/* Industry approach to Deconstruct Object, Now another way to shorten the name */
+
+const {coursePartner: Partner} = course
+
+console.log(Partner);
+
+/* All this are json data format */
+// {
+//     "name": "hitesh",
+//     "coursename": "js in hindi",
+//     "price": "free"
+// }
+
+[
+    {},
+    {},
+    {}
+]
