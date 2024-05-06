@@ -17,7 +17,7 @@ const user={
 console.log(this);
 
 // when we use this outside a object in node => showing empty object{}
-//but when we use this in windows console => its show a Object named "window"
+//but when we use this in windows console => its show a globalObject named "window"
 
 /* but can we use "this" in a function?  */
 
@@ -54,15 +54,18 @@ const test3 = () => {
 
 /* basic arrow function */
 
-const add2nums = (nums1,nums2)=>{
-    return nums1 + nums2
-}
+// const add2sums = (nums1,nums2)=>{
+//     return nums1 + nums2
+// }
+
+
 // this is explicitly using return
 
-console.log(add2nums(3,5))
+// console.log(add2sums(3,5))
+
 
 /* different way of writing arrow function */
-const add2nums = (nums1,nums2)=> nums1 + nums2 // implicit return
-const add2nums = (nums1,nums2)=> (nums1 + nums2) // implicit return with parenthesis
+// const add2sums = (nums1,nums2)=> nums1 + nums2 // implicit return
+// const add2sums = (nums1,nums2)=> (nums1 + nums2) // implicit return with parenthesis
 const add2nums = (nums1,nums2)=> ({username: "Aman"}) // implicit return with parenthesis specially only for Objects
 
