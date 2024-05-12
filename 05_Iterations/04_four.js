@@ -29,6 +29,13 @@ map.set('UK', "United Kingdom")
 map.set('FR', "France")
 
 for (const key in map) {
-    console.log(key);
+    // console.log(key);
 }
 // so , i found that it wont work...have u learn more about MAP through Mdn
+
+// Maps are not iterable , so wont work with loop in, 
+// but with loop for => [key, values] it can iterate
+
+// with loop "for of" => for directly iterating/printing values over string + arrays + maps [keys, values]
+
+// with "for in" loop => for iterating using key and values over strings + arrays + objects
