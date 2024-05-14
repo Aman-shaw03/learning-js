@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM part 2 | Chai aur Code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <!-- This is a comment -->
+
+
+        
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+    
+</body>
+<script>
+    const parent = document.querySelector(".parent")
+    // console.log(parent);
+    // console.log(parent.children);
+    // console.log(parent.children[1].innerHTML);
+
+    // for (let i = 0; i < parent.children.length; i++) {
+    //     console.log(parent.children[i].innerHTML);     
+    // }
+
+    // console.log(parent.firstElementChild.innerHTML)
+    // console.log(parent.lastElementChild.innerHTML);
+
+    const dayOne = document.querySelector(".day")
+    // console.log(dayOne);
+    // console.log(dayOne.parentElement);
+    // console.log(dayOne.nextElementSibling.innerHTML);
+
+    console.log(parent.childNodes);
+        // its shows us all the nodes there => total 9 nodes till now(4 div + 5 line breaks), as line break "\n" are also count as nodes A line break is also counted in nodelist but only first one. All subsequent line breaks are ignored by browser
+    
+</script>
+</html>
