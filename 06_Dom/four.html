@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Part 3 | chai aur Code </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLang(langName){
+        const li = document.createElement("li")
+        li.innerHTML = `${langName}`
+        document.querySelector(".language").appendChild(li)
+    }
+    addLang("python")
+    addLang("TypeScript")
+    addLang("Ruby on Rails")
+
+    // for this line ("li.innerHTML = `${langName}`") code has to traversed whole tree ..so little ineficient
+
+    // more optimised way
+    function addoptiLang(langName){
+        const li = document.createElement("li")
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector(".language").appendChild(li)
+    }
+    addoptiLang("Golang")
+    addoptiLang("Nextjs")
+
+    // but with this code ("li.appendChild(document.createTextNode(langName))") it dont have to traverse ..just append the textNode created directly to it
+
+
+    /*Edit Values*/
+    const secondLang = document.querySelector("li:nth-child(2)")
+    console.log(secondLang);
+    // secondLang.innerHTML = "Auth"
+    const li = document.createElement("li")
+    li.textContent = "Mojo"
+    secondLang.replaceWith(li)
+
+    // edit
+    const firstLang = document.querySelector("li:nth-child(2)")
+    firstLang.outerHTML = "<li>Django</li>"
+
+    //remove
+    const lastName = document.querySelector("li:last-child")
+    lastName.remove()
+</script>
+</html> 
