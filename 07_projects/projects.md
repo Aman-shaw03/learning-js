@@ -81,17 +81,35 @@ form.addEventListener("submit", function (e) {
     const bmi = (weight / ((height*height) / 10000)).toFixed(2)
     // show the result
     results.innerHTML = `<span>${bmi}</span>`
-    switch (bmi) {
-      case (bmi < 18.6):
-        results.innerHTML = `<span>\n Your BMI ${bmi} indicates: You are Underweigth</span>`
-        break;
-      case (bmi <= 24.9):
-        results.innerHTML = `<span>\n Your BMI ${bmi} indicates: You are Under Normal Range</span>`
-        break;
-      case (bmi > 24.9):
-        results.innerHTML = `<span> \n Your BMI ${bmi} indicates: You are Overweight</span>`
-        break;
+    
+    if(bmi < 18.6){
+      const text = document.createElement("p");
+      text.innerHTML = `Your BMI ${bmi} indicates: You are Underweight`;
+      results.appendChild(text);
+    } else if(bmi >18.6 && bmi < 24.9) {
+      const text = document.createElement("p");
+      text.innerHTML = `Your BMI ${bmi} indicates: You are Under Normal Range`;
+      results.appendChild(text);
+    } else{
+      const text = document.createElement("p");
+      text.innerHTML = `Your BMI ${bmi} indicates: You are Overweight`;
+      results.appendChild(text);
     }
+
+    // if (bmi < 18.6) {
+    //   // addMessage.innerHTML = `<span>Under Weight</span>`;
+    //   const text = document.createElement("p");
+    //   text.innerHTML = `<span>Under Weight</span>`;
+    //   results.appendChild(text);
+    // } else if (bmi > 18.6 && bmi < 24.9) {
+    //   const text = document.createElement("p");
+    //   text.innerHTML = `<span>Normal Weight</span>`;
+    //   results.appendChild(text);
+    // } else {
+    //   const text = document.createElement("p");
+    //   text.innerHTML = `<span>OverWeight</span>`;
+    //   results.appendChild(text);
+    // }
   }
 
 })
