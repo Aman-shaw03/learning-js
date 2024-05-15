@@ -59,3 +59,40 @@ buttons.forEach(function(button){
   }})
 })
 ```
+
+## project 2 solution code
+
+```javascript
+const form = document.querySelector("form")
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault()
+  // prevents the submit operation from executing
+
+  const height = parseInt(document.querySelector("#height").value);
+  const weight = parseInt(document.querySelector("#weight").value);
+  const results = document.querySelector("#results");
+
+  if(height ===""|| height < 0 || isNaN(height)){
+    results.innerHTML = "Please provide a valid height"
+  } else if(weight ===""|| weight < 0 || isNaN(weight)){
+    results.innerHTML = "Please provide a valid weight"
+  }else {
+    const bmi = (weight / ((height*height) / 10000)).toFixed(2)
+    // show the result
+    results.innerHTML = `<span>${bmi}</span>`
+    switch (bmi) {
+      case (bmi < 18.6):
+        results.innerHTML = `<span>\n Your BMI ${bmi} indicates: You are Underweigth</span>`
+        break;
+      case (bmi <= 24.9):
+        results.innerHTML = `<span>\n Your BMI ${bmi} indicates: You are Under Normal Range</span>`
+        break;
+      case (bmi > 24.9):
+        results.innerHTML = `<span> \n Your BMI ${bmi} indicates: You are Overweight</span>`
+        break;
+    }
+  }
+
+})
+```
