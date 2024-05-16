@@ -114,3 +114,29 @@ form.addEventListener("submit", function (e) {
 
 })
 ```
+
+## Project - 3 solution code
+
+```javascript
+// document.querySelector("#clock")
+const clock = document.getElementById("clock");
+
+// let date = new Date();
+// console.log(date.toLocaleTimeString())
+
+const time = document.createElement("p")
+clock.appendChild(time)
+
+setInterval(function(){
+  let date = new Date();
+  // console.log(date.toLocaleTimeString())
+  time.innerHTML = date.toLocaleTimeString()
+
+
+},5000)
+
+// setInterval :- set the time interval for which the function of code will execute . 5000=> 5 seconds (in milliseconds)
+
+
+// hear my explanation:- so if we create the element time (as per my code) outside the loop and append child it ..so only variable is actually append to it ..so with setInterval it will overwrtite tje code and not every time create the same variable again and again ..which cause them to stacked
+```
