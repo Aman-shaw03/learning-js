@@ -140,3 +140,120 @@ setInterval(function(){
 
 // hear my explanation:- so if we create the element time (as per my code) outside the loop and append child it ..so only variable is actually append to it ..so with setInterval it will overwrtite tje code and not every time create the same variable again and again ..which cause them to stacked
 ```
+
+## Project 4 solution code
+
+```javascript
+let randomNumber = (parseInt(Math.random() * 100 + 1))
+
+const submit = document.querySelector("#subt");
+const userInput = document.querySelector("#guessField");
+const userGuesses = document.querySelector(".guesses");
+const remainingGuess = document.querySelector(".lastResult");
+const lowOrHi = document.querySelector(".lowOrHi");
+const startOver = document.querySelector(".resultParas");
+
+const p = document.createElement("p")
+
+let prevGuess = []
+let numGuess = 1
+let playGame = true
+
+
+if(playGame){
+  submit.addEventListener("click",function(e){
+    e.preventDefault();
+    const guess = parseInt(userInput.value);
+    validateGuess(guess)
+  })
+}
+
+function validateGuess(guess){
+  if (isNaN(guess)){
+    alert("Please Enter a Valid Number")
+  } else if (guess < 1){
+    alert("Please Enter a Valid Number which is Greater then 1")
+  } else if (guess > 100){
+    alert("Please Enter a Valid Number which is Lower then 100")
+  } else {
+    prevGuess.push(guess)
+    if (numGuess === 11){
+      displayGuess(guess)
+      displayMsg(`Game Over. The number was ${randomNumber}`)
+      endGame()
+    } else {
+      checkGuess(guess)
+      displayGuess(guess)
+    }
+  }
+}
+
+function checkGuess(guess){
+  if(guess === randomNumber){
+    displayMsg(`You guess it Right`)
+    endGame()
+  } else if (guess < randomNumber){
+    displayMsg(`Your Guess is too Low`)
+  } else if (guess > randomNumber){
+    displayMsg(`Your Guess is too High`)
+  }
+}
+
+function displayGuess(guess){
+  userInput.value = ""
+  userGuesses.innerHTML += `${guess} | `
+  numGuess++
+  remainingGuess.innerHTML = `${10 - numGuess}`
+
+
+}
+
+function displayMsg(message){
+  lowOrHi.innerHTML = `<h2>${message}</h2>`
+}
+
+function endGame(){
+  userInput.value = ""
+  userInput.setAttribute("disabled","") 
+  // usually disbaled used alone but here we have to set it as a key value pair , so we set the value as ""
+  p.classList.add = "button";
+  p.innerHTML = `<h2 id = "newGame">Start New Game</h2>`;
+  startOver.appendChild(p);
+  playGame = false;
+  newGame();
+}
+function newGame(){
+  // first reset all the values 
+  const newGameButton = document.querySelector('#newGame');
+  newGameButton.addEventListener('click',function (e) {
+    randomNumber = (parseInt(Math.random() * 100 + 1));
+    userInput.removeAttribute("disabled");
+    prevGuess = [];
+    userGuesses.innerHTML = ``;
+    remainingGuess.innerHTML = `${11 - numGuess}`;
+    startOver.removeChild(p);
+    numGuess = 1;
+
+    playGame = true;
+
+  })
+}
+// one debug i found :- dont name your id with [space] in between them
+
+
+// function newGame() {
+//   const newGameButton = document.querySelector('#newGame');
+//   newGameButton.addEventListener('click', function (e) {
+//     randomNumber = parseInt(Math.random() * 100 + 1);
+//     prevGuess = [];
+//     numGuess = 1;
+//     userGuesses.innerHTML = '';
+//     remainingGuess.innerHTML = `${11 - numGuess} `;
+//     userInput.removeAttribute('disabled');
+//     startOver.removeChild(p);
+
+//     playGame = true;
+//   });
+// }
+
+```
