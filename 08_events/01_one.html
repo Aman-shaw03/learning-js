@@ -34,7 +34,7 @@
 
     // Events to learn is "addEventListener"
     // type , timestamped , defaultPrevented
-    //target , element , srcelement , currentTarget
+    //target , element , srcelement(deprecated), currentTarget
     //clientX , clientY , screenX , screenY
     // altkey , enterkey , spacekey, shiftkey
 
@@ -77,6 +77,25 @@
     }, false)
 
     // removeIt.parentNode.removeChild(removeIt)
+
+    /*_________________________Notes______________________
+
+    currentTarget => catches the event element itself
+    Target => catches the element inside the event element
+
+    preventDefault() => prevent to happen the default behaviour of the element
+    defaultPrevented => is a way to check if the default is prevented or not (Boolean)
+
+    timestamp => provide the timestamp in milliseconds 
+    type => provide the type of the event when perform any operation
+
+    These properties provide the horizontal (clientX) and vertical (clientY) coordinates of a mouse event relative to the viewport (the visible portion of the browser window).
+
+    These properties provide the horizontal (screenX) and vertical (screenY) coordinates of a mouse event relative to the entire screen (including any non-visible parts).
+
+    altkey,spacekey , enterkey , shiftkey => provide boolean when these keys are pressed
+    
+    */
 
 
 </script>
