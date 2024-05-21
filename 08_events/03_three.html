@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async leanrning</title>
+</head>
+<body>
+    <h1>Chai aur Javascript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayDate = function(str){
+        console.log(str, Date.now());
+    }
+
+    // const toStart = function(){
+    //     const intervalID = setInterval(sayDate,1000,"Aman")
+    // }
+
+    // const toStop = function(){clearInterval(intervalID)}
+
+    // // const interlID = setInterval(sayDate , 2000)
+    // document.querySelector("#start").addEventListener("click", toStart)
+
+    // document.querySelector("#stop").addEventListener("click", toStop)
+
+
+
+    // document.querySelector('#start').addEventListener('click', function(){
+    //     const intervalid = setInterval(sayDate,1000,"hi")
+    //     console.log('START');
+        
+    //     document.querySelector('#stop').addEventListener('click', function(){
+    //     clearInterval(intervalid)
+    //     console.log('STOPPED');
+    // }) })
+
+
+    document.querySelector("#start").addEventListener("click", function(){
+        const intervalID = setInterval(sayDate, 1000 , "Aman")
+        console.log("Start");
+
+        document.querySelector("#stop").addEventListener("click", function(){
+            clearInterval(intervalID)
+            console.log("Stopped");
+        })
+    })
+
+</script>
+</html>

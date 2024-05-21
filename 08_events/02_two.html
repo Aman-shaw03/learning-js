@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async leanrning</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const saymyName = function(){
+        console.log("Say my Name :- Aman shaw");
+    }
+
+    const changeText = function(){document.querySelector("h1").innerHTML = "Learning Javascript from Chai aur Code"}
+
+
+    const changeMe = setTimeout(changeText, 3000)
+    // execute the function(handler) after the given time(in miliseconds)
+    // to stop the execution we can use clear timeout
+
+    // clearTimeout(changeMe) it can stop , but we want to stop on some event so,
+
+    document.querySelector("#stop").addEventListener("click", function(){
+        clearTimeout(changeMe);
+        console.log(`stopped Execution`);
+    })
+
+    // changeMe goes to the setTimeout()in webApi and then task queue and when we use clearTimeout() we can clearing it from clearTimeout()
+</script>
+</html>
