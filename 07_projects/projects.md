@@ -257,3 +257,66 @@ function newGame(){
 // }
 
 ```
+
+## Project 5 solution code
+
+```javascript
+const insert = document.getElementById("insert")
+
+window.addEventListener("keydown", (e)=>{
+  insert.innerHTML = `<table>
+  <tr>
+    <th>Key</th>
+    <th>KeyCode</th>
+    <th>Code</th>
+  </tr>
+  <tr>
+    <td>${e.key === " "? "spacekey" :e.key}</td>
+    <td>${e.keyCode}</td>
+    <td>${e.code}</td>
+  </tr>
+  
+</table>`
+})
+
+```
+
+## Project 6 solution code
+
+``` Javascript
+
+// generating Random Hex code
+const colorchanger = function(){
+  const hexCode = "0123456789ABCDEF"
+  let color = "#"
+  for (let i = 0; i<6 ; i++) {
+    color += hexCode[Math.floor(Math.random() * 16)];
+  }
+  return color
+}
+
+// document.querySelector("#start").addEventListener("click", function(){
+//   let myColor = document.body.style.backgroundColor = colorchanger()
+//   const newcolor = setInterval(myColor,3000)
+// })
+// console.log(colorchanger())
+
+let intervalId;
+const startchangingcolor = function(){  
+  const changeBgColor = function(){
+    document.body.style.backgroundColor = colorchanger()
+  }
+  if(!intervalId){
+    intervalId = setInterval(changeBgColor,100)
+  }
+}
+
+const stopchangingcolor = function(){
+  clearInterval(intervalId)
+  intervalId = null
+}
+
+document.querySelector("#start").addEventListener("click", startchangingcolor)
+
+document.querySelector("#stop").addEventListener("click", stopchangingcolor)
+```
