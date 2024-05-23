@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #212121;
+            color: #fff;
+        }
+        #main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #card{
+            width: 300px;
+            height: 350px;
+            background-color: lightblue;
+            border: 1px solid lightgreen;
+            border-radius: 25px; 
+            text-align: center;   
+        }
+        img{
+            margin-top: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+        h2{
+        color: white;
+        padding: 20px;
+        text-decoration: solid;
+        }
+        button{
+            border-radius: 12px;
+            padding: 8px 8px;
+            background-color: rgb(90, 90, 157);
+            color: aliceblue;
+        }
+    </style>
+    <title>Practise</title>
+</head>
+<body>
+    <div id="main">
+        <div id="card">
+            <img src="" alt="">
+            <h2>Followers: <span id="followers-count"></span></h2>
+            <button id="button">Get Data</button>
+        </div>
+    </div>
+</body>
+<script>
+    const button = document.querySelector("button");
+    const img = document.querySelector("img");
+    const card = document.querySelector("card");
+    const followers = document.getElementById("followers-count");
+    
+    button.addEventListener("click", function(){
+        const requestUrl = "https://api.github.com/users/hiteshchoudhary"
+        const xhr = new XMLHttpRequest()
+        xhr.open("GET", requestUrl)
+        xhr.onreadystatechange = function(){
+            // console.log(xhr.readyState);
+            if(xhr.readyState === 4){
+                if(xhr.status === 200){
+                    const data = JSON.parse(xhr.responseText)
+                    // console.log(data);
+                    followers.innerText = `${data.followers}`
+                    img.src = data.avatar_url
+
+                }else{
+                    console.log("Error fetching data:", xhr.status, xhr.statusText);
+                }
+            }
+        }
+        xhr.send()
+    })
+</script>
+</html>
