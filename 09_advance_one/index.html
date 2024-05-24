@@ -81,5 +81,8 @@
         }
         xhr.send()
     })
+
+    // the "new" keyword invokes the contructor function("XMLHttpRequest") => which create the object
+    // Without new, you wouldn't be creating a new XMLHttpRequest object. You might end up with a reference to the constructor function itself, which wouldn't be usable for making requests.
 </script>
 </html>
