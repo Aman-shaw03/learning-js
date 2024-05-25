@@ -125,3 +125,5 @@ fetch("https://api.github.com/users/hiteshchoudhary")
     console.log(error);
 })
 // when we use fetch with "then and catch" we dont have to use "await" since "then" will only execute if it execute otherwise catch will execute
+
+// a fetch only " reject" when they face a error on network=> not "Reject" when they face a HTTP error like "404" ..they are consider as response 
