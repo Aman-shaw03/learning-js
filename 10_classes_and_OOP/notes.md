@@ -35,3 +35,7 @@ You define a subclass using the "class" keyword, the subclass name, and the "ext
 - Encapsulation => in some objects we have some variable which is in object but cannot be access by outer enviroment (object.keys) and that hiding the key/variable/element is called encapsulation.
 
 - polymorphism =>  it refers to the ability of objects to respond differently to the same method call.like Inheritance a block of code can be reused based on use case and also overwrite it as per need
+
+
+
+JavaScript has prototypal behaviour- because of Prototype we have access to "new", "classes", "this" => this is Javascript behaviour (read it)
