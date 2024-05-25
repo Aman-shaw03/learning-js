@@ -25,7 +25,7 @@ object literal
 - instances (new, this)
 
 ## 4 Pillars
-- Abstraction
+- Abstraction => in object and function we will able use it (also with different use cases) and dont have to understand the logic behind it and how it computes, They bundle data (properties) and the actions (methods) that operate on that data means Abstraction in JS
 - Inheritance
-- Encapsulation
+- Encapsulation => in some objects we have some variable which is in object but cannot be access by outer enviroment (object.keys) and that hiding the key/variable/element is called encapsulation
 - polymorphism
