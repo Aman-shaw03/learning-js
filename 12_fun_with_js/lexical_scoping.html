@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+    <script>
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // function outer(){
+    //     let username = "hitesh"
+    //     console.log("OUTER", secret);
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         console.log(secret);
+    //     }
+    //     inner()
+    //     innerTwo()
+
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);
+
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+    // due to "closure"=> which means when we are returning the function , it not only has its scope but also the lexical scope access which it has before (memory reference to those variables) so displayname still has access to "name"
+
+    </script>
+    <script>
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = `orange`
+        // }
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = `green`
+        // }
+
+        function clickHandler(color){
+            // document.body.style.backgroundColor = `${color}`
+
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+        // the function which is returning has access to color (which is outer its function scope) due to when its returning its not only has its executing context but also the lexical scope (memory ref) so it has access to "color" variables
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script>
+    <script>
+            // so lexical scoping is like 1. function has access to outer enviroment variables
+    // 2(i). innerfunction has access to its variables + function(1) variables but not outerenv variables
+    // 2(ii). anotherinner function has access to its variables + function(1) variables but not outerenv variables also not variables in innerfunction
+
+    // 3.inner_inner function has access to its variables + function(2(i)/(ii)) variables + function(1) variables but not outerenv variables
+
+    // so like a tree structure
+
+    //A closure is formed when a function is returned from another function while still having access to variables in the outer function's lexical scope, even after the outer function has finished executing.
+// This closure "encloses" the inner function and the referenced variables from the outer scope, creating a sort of hidden environment that the inner function can utilize.
+
+    </script>
+</html>
+
+
