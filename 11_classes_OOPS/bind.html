@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Subcribe Button</button>
+</body>
+<script>
+    class react{
+        constructor(){
+            this.library = "React"
+            this.server = "http://localhost:300"
+
+            document
+                .querySelector("button")
+                .addEventListener("click", this.handleclick.bind(this))
+        }
+        handleclick(){
+            console.log("button clicked");
+            console.log(this.server);
+            console.log(this.library);
+        }
+    }
+    // a problem we are facing that the reference of "this" (in handleclick() ) is the whole button as we are passing through addeventlistener but the reference of "this" outer of handleclick is not there (button ka ref hai par this.server , this.library ka ref nhi "<button>Subcribe Button</button>"), since it has somewhat half reference => .addEventListener("click", this.handleclick)
+
+    // to tackle this problem in React (where we put onclick on the button in body) we use "bind" and "this" is passed through binding it .addEventListener("click", this.handleclick.bind(this))
+
+    // after using "bind" and pass "this" we have now reference to every variable inside react. and we can now use this.server ot this.library. without bind it wont work . react {library: 'React', server: 'http://localhost:300'} . also it didnt overwrite the old reference of button "<button>Subcribe Button</button>"
+
+    // we cant use "call" since we are not giving a whole New reference (button) => code will break since nothing new object hasnot been called and "handleclick" is already inside the object
+    // "bind.html:57 Uncaught ReferenceError: server is not defined
+    // at new react (bind.html:57:72)
+    // at bind.html:74:17"
+
+    const app = new react()
+</script>
+</html>
